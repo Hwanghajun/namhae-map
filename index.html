@@ -1,0 +1,97 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>남해도유역 굴착 일정표</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Do+Hyeon&display=swap">
+<style>
+:root{
+  --bg:#f3f6f6; --paper:#ffffff; --ink:#15262b; --muted:#5d7177; --line:#d6e0e1; --zebra:#f7fafa;
+  --sea:#0f6e86; --sea-soft:#e0eff3;
+  --ok:#2c7a4b; --ok-soft:#e3f2e8; --warn:#a9670b; --warn-soft:#fbf0dc; --no:#b4342d; --no-soft:#fbe6e4;
+  --f-display:"Do Hyeon","IBM Plex Sans KR",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0f1719; --paper:#162225; --ink:#e3ecee; --muted:#93a7ac; --line:#2a3a3e; --zebra:#1a282b;
+  --sea:#5cc2db; --sea-soft:#163a44;
+  --ok:#6fcf93; --ok-soft:#173527; --warn:#e7b25c; --warn-soft:#3a2c14; --no:#f08a82; --no-soft:#3d1d1b; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 32px}
+.sheet{max-width:1040px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 22px 16px;display:flex;flex-direction:column;gap:14px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px 20px}
+.eyebrow{font-size:12px;letter-spacing:.06em;color:var(--sea);font-weight:600}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,3.4vw,34px);line-height:1.1;margin:2px 0 0}
+.meta{font-size:13px;color:var(--muted);text-align:right}
+.meta b{color:var(--ink);font-weight:600}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{font-size:12px;font-weight:600;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:2px solid var(--ink)}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr:nth-child(even) td{background:var(--zebra)}
+.date{font-family:var(--f-display);font-size:19px;white-space:nowrap}
+.date small{font-family:var(--f-body);font-size:12px;color:var(--muted);margin-left:4px}
+.n{font-family:var(--f-mono);font-weight:600;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+.area{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.route .arr{color:var(--muted);font-size:11px}
+.chip{font-family:var(--f-mono);font-weight:600;font-size:12.5px;padding:2px 7px;border-radius:6px;text-decoration:none;white-space:nowrap}
+.chip:focus-visible{outline:2px solid var(--sea);outline-offset:1px}
+.w-O{background:var(--ok-soft);color:var(--ok)} .w-V{background:var(--warn-soft);color:var(--warn)} .w-X{background:var(--no-soft);color:var(--no)}
+.chip.start{box-shadow:inset 0 0 0 1.5px var(--sea)}
+.chip.c2{outline:1.5px dashed #e07b16;outline-offset:1px}
+.chip.done{position:relative;opacity:.85}
+.chip.done::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 1.2px),#d62828 calc(50% - 1.2px),#d62828 calc(50% + 1.2px),transparent calc(50% + 1.2px)),linear-gradient(to bottom right,transparent calc(50% - 1.2px),#d62828 calc(50% - 1.2px),#d62828 calc(50% + 1.2px),transparent calc(50% + 1.2px));border-radius:6px}
+.cha2{font-size:11px;font-weight:600;color:#c2650a;margin-left:6px;white-space:nowrap}
+.truck{font-size:12px;font-weight:600;white-space:nowrap}
+.truck.no{color:var(--ok)} .truck.yes{color:var(--sea)}
+tfoot td{font-weight:600;border-bottom:none;border-top:2px solid var(--ink)}
+.crew{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.crew h2{font-size:13px;font-weight:600;margin:0 0 6px;color:var(--sea)}
+.crew-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:4px 24px}
+.crew-grid div{display:flex;gap:8px;align-items:baseline;font-size:13px;white-space:nowrap}
+.crew-grid .r{color:var(--muted);font-size:12px;min-width:64px}
+.crew-grid a{font-family:var(--f-mono);font-weight:600;color:var(--sea);text-decoration:underline dotted}
+.crew-grid small{color:var(--muted);font-size:11.5px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);align-items:center}
+.legend .chip{font-size:11px;padding:1px 6px}
+@media (max-width:560px){.sheet{padding:16px 12px 12px}.meta{text-align:left}}
+</style></head><body>
+<div class="sheet">
+  <header>
+    <div>
+      <div class="eyebrow">남해도유역 지하수 기초조사</div>
+      <h1>굴착 40공 일정표</h1>
+    </div>
+    <div class="meta">2026.11.3(화) ~ 11.17(화) · 1차 24공 → 2차 16공 · 하루 4~5공<br>집결 <b>남해읍 아산리 산 144-29 (J063)</b> · 살수차 <b>11/5</b>부터</div>
+  </header>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>작업일</th><th style="text-align:center">공 수</th><th>지역</th><th>동선 (굴착 순서)</th><th>살수차</th></tr></thead>
+      <tbody id="rows"></tbody>
+      <tfoot><tr><td>합계</td><td class="n">40</td><td colspan="3"></td></tr></tfoot>
+    </table>
+  </div>
+  <div class="crew"><h2>투입 인원 · 연락처 (번호를 누르면 전화 연결)</h2><div class="crew-grid"><div><span class="r">작업지휘자</span><b>이민재</b><a href="tel:01067766312">010-6776-6312</a></div><div><span class="r">작업지휘자</span><b>전항탁</b><a href="tel:01098443852">010-9844-3852</a><small>예비</small></div><div><span class="r">작업자</span><b>안병길</b><a href="tel:01052773363">010-5277-3363</a></div><div><span class="r">작업자</span><b>황하준</b><a href="tel:01093804131">010-9380-4131</a></div><div><span class="r">유도자</span><b>김기현</b><a href="tel:01048018055">010-4801-8055</a></div><div><span class="r">살수차</span><b>김준식</b><a href="tel:01073233855">010-7323-3855</a><small>11/5부터</small></div></div></div>
+  <div class="legend">
+    <span><span class="chip w-O">O</span> 물 있음</span>
+    <span><span class="chip w-V">V</span> 확인 필요</span>
+    <span><span class="chip w-X">X</span> 물 없음</span>
+    <span><span class="chip w-O done">J000</span> 시추 완료</span>
+    <span>실선 테두리 = 집결·출발지 · <b style="color:#c2650a">점선 테두리 = 2차(인허가 후 진행)</b> · 조사번호를 누르면 카카오맵이 열립니다</span>
+  </div>
+</div>
+<script>
+const DATA = [{"date": "11/3", "wd": "화", "items": [{"seq": 1, "id": "J063", "addr": "남해읍 아산리 산 144-29", "w": "O", "memo": "45미터 거리 저수지", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%ED%95%B4%EC%9D%8D%20%EC%95%84%EC%82%B0%EB%A6%AC%20%EC%82%B0%20144-29", "cha": "1차"}, {"seq": 2, "id": "J048", "addr": "서면 서호리 544-2", "w": "O", "memo": "75미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%84%9C%EB%A9%B4%20%EC%84%9C%ED%98%B8%EB%A6%AC%20544-2", "cha": "1차"}, {"seq": 3, "id": "L047", "addr": "남면 선구리 1051-2", "w": "O", "memo": "20미터 거리 하천, 수두차 알 수 없음", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%EB%A9%B4%20%EC%84%A0%EA%B5%AC%EB%A6%AC%201051-2", "cha": "1차"}]}, {"date": "11/4", "wd": "수", "items": [{"seq": 4, "id": "J034", "addr": "상주면 상주리 1272-1", "w": "O", "memo": "50미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%83%81%EC%A3%BC%EB%A9%B4%20%EC%83%81%EC%A3%BC%EB%A6%AC%201272-1", "cha": "1차"}, {"seq": 5, "id": "J026", "addr": "삼동면 봉화리 산 507-6", "w": "O", "memo": "50미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%82%BC%EB%8F%99%EB%A9%B4%20%EB%B4%89%ED%99%94%EB%A6%AC%20%EC%82%B0%20507-6", "cha": "1차"}, {"seq": 6, "id": "J024", "addr": "삼동면 봉화리 1272", "w": "O", "memo": "50미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%82%BC%EB%8F%99%EB%A9%B4%20%EB%B4%89%ED%99%94%EB%A6%AC%201272", "cha": "1차"}]}, {"date": "11/5", "wd": "목", "items": [{"seq": 7, "id": "J028", "addr": "삼동면 금송리 66-4", "w": "O", "memo": "15미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%82%BC%EB%8F%99%EB%A9%B4%20%EA%B8%88%EC%86%A1%EB%A6%AC%2066-4", "cha": "1차"}, {"seq": 8, "id": "L008", "addr": "창선면 서대리 802-3", "w": "O", "memo": "30미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EC%84%9C%EB%8C%80%EB%A6%AC%20802-3", "cha": "1차"}, {"seq": 9, "id": "L005", "addr": "창선면 당항리 산 126-1", "w": "X", "memo": "캠핑카 앞", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EB%8B%B9%ED%95%AD%EB%A6%AC%20%EC%82%B0%20126-1", "cha": "1차"}, {"seq": 10, "id": "J007", "addr": "창선면 가인리 561-1", "w": "O", "memo": "30미터 옆 바닷물", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EA%B0%80%EC%9D%B8%EB%A6%AC%20561-1", "cha": "1차"}]}, {"date": "11/6", "wd": "금", "items": [{"seq": 11, "id": "J009", "addr": "창선면 오용리 산 118-28", "w": "X", "memo": "산 꼭대기", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EC%98%A4%EC%9A%A9%EB%A6%AC%20%EC%82%B0%20118-28", "cha": "1차"}, {"seq": 12, "id": "L012", "addr": "창선면 지족리 522-4", "w": "X", "memo": "70미터 거리 바다, 수두차 심함, 답사 필요", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EC%A7%80%EC%A1%B1%EB%A6%AC%20522-4", "cha": "1차"}, {"seq": 13, "id": "J038", "addr": "이동면 용소리 1067-3", "w": "V", "memo": "50미터 거리 하천, 지동상엔 물 없음, 답사 필요", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%9D%B4%EB%8F%99%EB%A9%B4%20%EC%9A%A9%EC%86%8C%EB%A6%AC%201067-3", "cha": "1차"}, {"seq": 14, "id": "L049", "addr": "남면 홍현리 266-1", "w": "X", "memo": "우천으로 1공만 시추", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%EB%A9%B4%20%ED%99%8D%ED%98%84%EB%A6%AC%20266-1", "cha": "1차"}]}, {"date": "11/10", "wd": "화", "items": [{"seq": 15, "id": "L043", "addr": "남면 홍현리 1398-4", "w": "X", "memo": "산 꼭대기", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%EB%A9%B4%20%ED%99%8D%ED%98%84%EB%A6%AC%201398-4", "cha": "1차"}, {"seq": 16, "id": "J052", "addr": "남면 평산리 1467-4", "w": "X", "memo": "", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%EB%A9%B4%20%ED%8F%89%EC%82%B0%EB%A6%AC%201467-4", "cha": "1차"}, {"seq": 17, "id": "J042", "addr": "남면 당항리 1440", "w": "V", "memo": "J077 대체 추가공", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%EB%A9%B4%20%EB%8B%B9%ED%95%AD%EB%A6%AC%201440", "cha": "1차"}, {"seq": 18, "id": "J044", "addr": "남면 상가리 606-2", "w": "V", "memo": "150미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%EB%A9%B4%20%EC%83%81%EA%B0%80%EB%A6%AC%20606-2", "cha": "1차"}, {"seq": 19, "id": "J046", "addr": "남해읍 평현리 1888-3", "w": "X", "memo": "교통섬", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%82%A8%ED%95%B4%EC%9D%8D%20%ED%8F%89%ED%98%84%EB%A6%AC%201888-3", "cha": "1차"}, {"seq": 20, "id": "J072", "addr": "서면 작장리 273-2", "w": "V", "memo": "50미터 거리 계곡, 수두차 심함, 답사 필요", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%84%9C%EB%A9%B4%20%EC%9E%91%EC%9E%A5%EB%A6%AC%20273-2", "cha": "1차"}]}, {"date": "11/11", "wd": "수", "items": [{"seq": 21, "id": "J056", "addr": "서면 노구리 359", "w": "X", "memo": "", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%84%9C%EB%A9%B4%20%EB%85%B8%EA%B5%AC%EB%A6%AC%20359", "cha": "2차"}, {"seq": 22, "id": "J059", "addr": "서면 중현리 17-3", "w": "X", "memo": "현촌회관", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%84%9C%EB%A9%B4%20%EC%A4%91%ED%98%84%EB%A6%AC%2017-3", "cha": "2차"}, {"seq": 23, "id": "L064", "addr": "고현면 대사리 627-3", "w": "X", "memo": "170미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EA%B3%A0%ED%98%84%EB%A9%B4%20%EB%8C%80%EC%82%AC%EB%A6%AC%20627-3", "cha": "1차"}, {"seq": 24, "id": "J079", "addr": "고현면 차면리 843", "w": "V", "memo": "100미터 거리 바다", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EA%B3%A0%ED%98%84%EB%A9%B4%20%EC%B0%A8%EB%A9%B4%EB%A6%AC%20843", "cha": "2차"}, {"seq": 25, "id": "L051", "addr": "설천면 노량리 207", "w": "X", "memo": "", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%84%A4%EC%B2%9C%EB%A9%B4%20%EB%85%B8%EB%9F%89%EB%A6%AC%20207", "cha": "2차"}, {"seq": 26, "id": "L055", "addr": "설천면 금음리 939-5", "w": "X", "memo": "", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%84%A4%EC%B2%9C%EB%A9%B4%20%EA%B8%88%EC%9D%8C%EB%A6%AC%20939-5", "cha": "1차"}]}, {"date": "11/12", "wd": "목", "items": [{"seq": 27, "id": "L059", "addr": "설천면 진목리 산 50-2", "w": "X", "memo": "산 꼭대기", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%84%A4%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%AA%A9%EB%A6%AC%20%EC%82%B0%2050-2", "cha": "1차"}, {"seq": 28, "id": "J066", "addr": "고현면 도마리 1272-18", "w": "X", "memo": "산 꼭대기", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EA%B3%A0%ED%98%84%EB%A9%B4%20%EB%8F%84%EB%A7%88%EB%A6%AC%201272-18", "cha": "1차"}, {"seq": 29, "id": "J061", "addr": "남해읍 남변리 555", "w": "V", "memo": "130미터 거리 평천, 답사 필요", "link": "https://map.kakao.com/link/map/J061,34.831742,127.8997336", "cha": "2차"}, {"seq": 30, "id": "L034", "addr": "이동면 다정리 660-1", "w": "V", "memo": "120미터 거리 다천천, 답사 필요", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%9D%B4%EB%8F%99%EB%A9%B4%20%EB%8B%A4%EC%A0%95%EB%A6%AC%20660-1", "cha": "2차"}, {"seq": 31, "id": "L025", "addr": "이동면 무림리 1165-13", "w": "X", "memo": "L022 대체(지장물)", "link": "https://map.kakao.com/link/map/L025,34.8031528,127.9555656", "cha": "2차"}]}, {"date": "11/13", "wd": "금", "items": [{"seq": 32, "id": "L037", "addr": "이동면 신전리 산 103-6", "w": "O", "memo": "80미터 거리 금평천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%9D%B4%EB%8F%99%EB%A9%B4%20%EC%8B%A0%EC%A0%84%EB%A6%AC%20%EC%82%B0%20103-6", "cha": "2차"}, {"seq": 33, "id": "L038", "addr": "이동면 신전리 1253", "w": "O", "memo": "40미터 거리 하천", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%9D%B4%EB%8F%99%EB%A9%B4%20%EC%8B%A0%EC%A0%84%EB%A6%AC%201253", "cha": "2차"}, {"seq": 34, "id": "J076", "addr": "상주면 양아리 146", "w": "X", "memo": "", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%83%81%EC%A3%BC%EB%A9%B4%20%EC%96%91%EC%95%84%EB%A6%AC%20146", "cha": "2차"}]}, {"date": "11/16", "wd": "월", "items": [{"seq": 35, "id": "J031", "addr": "미조면 송정리 651", "w": "V", "memo": "도로건너 송상지->불가", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EB%AF%B8%EC%A1%B0%EB%A9%B4%20%EC%86%A1%EC%A0%95%EB%A6%AC%20651", "cha": "2차"}, {"seq": 36, "id": "J020", "addr": "삼동면 물건리 산 271-7", "w": "X", "memo": "", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%82%BC%EB%8F%99%EB%A9%B4%20%EB%AC%BC%EA%B1%B4%EB%A6%AC%20%EC%82%B0%20271-7", "cha": "2차"}, {"seq": 37, "id": "J001", "addr": "창선면 대벽리 1098", "w": "X", "memo": "주차장", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EB%8C%80%EB%B2%BD%EB%A6%AC%201098", "cha": "2차"}]}, {"date": "11/17", "wd": "화", "items": [{"seq": 38, "id": "J016", "addr": "창선면 부윤리 77-5", "w": "O", "memo": "40미터 거리 하천(도로건너)", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EB%B6%80%EC%9C%A4%EB%A6%AC%2077-5", "cha": "2차"}, {"seq": 39, "id": "L003", "addr": "창선면 대벽리 928-1", "w": "X", "memo": "", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EB%8C%80%EB%B2%BD%EB%A6%AC%20928-1", "cha": "2차"}, {"seq": 40, "id": "J008", "addr": "창선면 상죽리 10-9", "w": "V", "memo": "150미터 거리 창선천, 답사", "link": "https://map.kakao.com/link/search/%EB%82%A8%ED%95%B4%EA%B5%B0%20%EC%B0%BD%EC%84%A0%EB%A9%B4%20%EC%83%81%EC%A3%BD%EB%A6%AC%2010-9", "cha": "2차"}]}];
+const DONE = ["J063","J048","L047","J034","J026","J024","J028","L008","L005","J007","J009","L012","J038","L049","L043","J052","J042","J044","J046","J072","J056","J059","L064","J079","L051","L055","L059","J066","J061","L034","L025","L037","L038","J076","J031","J020","J001","J016","L003","J008"];
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const area = items => [...new Set(items.map(i=>i.addr.split(" ")[0]))].join("·");
+document.getElementById("rows").innerHTML = DATA.map(d=>{
+  const day = `<span class="date">${esc(d.date)}<small>${esc(d.wd)}</small></span>`;
+  const before = ["11/3","11/4"].includes(d.date);
+  const route = d.items.map(i=>`<a class="chip w-${esc(i.w)}${i.id==="J063"?" start":""}${i.cha==="2차"?" c2":""}${DONE.includes(i.id)?" done":""}" href="${esc(i.link)}" target="_blank" rel="noopener" title="${esc(i.addr)}${i.memo?" · "+esc(i.memo):""}">${esc(i.id)}</a>`).join('<span class="arr">→</span>');
+  return `<tr><td>${day}</td><td class="n">${d.items.length}</td><td class="area">${esc(area(d.items))}${d.items.some(i=>i.cha==="2차")?'<span class="cha2">2차 포함</span>':""}</td><td><div class="route">${route}</div></td>
+    <td><span class="truck ${before?"no":"yes"}">${before?"없음":"투입"}</span></td></tr>`;
+}).join("");
+</script>
+</body></html>
